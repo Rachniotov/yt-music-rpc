@@ -1,0 +1,12 @@
+{
+    "name": "Youtube Music Discord RPC",
+    "description": "an extension for showing currently playing track on discord",
+    "version": "0.1",
+    "manifest_version": 2,
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"],
+            "js": ["index.js"]
+        }
+    ]
+}
