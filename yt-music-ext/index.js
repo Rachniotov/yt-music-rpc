@@ -1,23 +1,16 @@
 if (document.location.href.includes('music.youtube')) {
-    console.log('sdfjhsdfhsdfh!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+    console.log('sdfjhsdfhsdfh!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! JJJJJJAAAAAAAAAAAAAA');
 
-    let flag = true;
     setInterval(() => {
         const name = document.querySelector('#layout > ytmusic-player-bar > div.middle-controls.style-scope.ytmusic-player-bar > div.content-info-wrapper.style-scope.ytmusic-player-bar > yt-formatted-string');
         const artist = document.querySelector('#layout > ytmusic-player-bar > div.middle-controls.style-scope.ytmusic-player-bar > div.content-info-wrapper.style-scope.ytmusic-player-bar > span > span.subtitle.style-scope.ytmusic-player-bar > yt-formatted-string');
+        const thumb = document.querySelector('#layout > ytmusic-player-bar > div.middle-controls.style-scope.ytmusic-player-bar > div.thumbnail-image-wrapper.style-scope.ytmusic-player-bar > img');
         let timeElasped = document.querySelector('#left-controls > span').innerText.split(' / ')[0];
         const now = Date.now();
         timeElasped = now - (parseTime(timeElasped) * 1000);
 
-        if (flag) {
-            var link = generateLink();
-        }
 
-        link = document.querySelector('#copy-link > yt-copy-link-renderer > #bar > #share-url');
-        console.log(link.value);
-
-        fetch(`http://localhost:3123/?title=${encodeURIComponent(name?.innerText)}&artist=${encodeURIComponent(artist?.innerText.split('•')[0])}&time=${timeElasped}&link=${encodeURIComponent(link.value)}`).catch(() => {});
-        flag = false;
+        fetch(`http://localhost:3123/?title=${encodeURIComponent(name?.innerText)}&artist=${encodeURIComponent(artist?.innerText.split('•')[0])}&time=${timeElasped}&thumb=${thumb.src}`).catch(() => {});
     }, 1000*5);
 }
 

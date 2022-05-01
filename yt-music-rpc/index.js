@@ -7,19 +7,19 @@ const express = require('express');
 const app = express();
 
 app.get('/', (req, res) => {
-    console.log(req.query);
+    if (req.query.artist !== 'undefined') {
+        client.setActivity({
+            details: req.query.title,
+            state: `by ${req.query.artist}`,
+            largeImageKey: req.query.thumb,
+            largeImageText: 'YTMusic > Spotify',
+            startTimestamp: Number(req.query.time),
+        }).then(a => {
+            res.sendStatus(200);
+            console.log(a);
+        });
+    }
 
-    client.setActivity({
-        details: req.query.title,
-        state: `by ${req.query.artist}`,
-        largeImageKey: 'youtube_music',
-        largeImageText: 'YTMusic > Spotify',
-        startTimestamp: Number(req.query.time),
-        buttons: [{ label: 'Listen it', url: decodeURIComponent(req.query.link) }]
-    }).then(a => {
-        res.sendStatus(200);
-        console.log(a);
-    });
 });
 
 app.listen(3123, () => {
