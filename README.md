@@ -20,7 +20,7 @@ A simple but effective Discord rich presence for Youtube Music. This consists of
 2. Open the extensions page of your browser (usually `chrome://extensions` but differs with browser) and enable developer mode.
 3. Click `Load unpacked` and select `yt-music-ext`.
 4. Enable the extension and restart the browser.
-5. Go to `yt-music-rpc` folder and run `node .`.
+5. Go to `yt-music-rpc` folder and run `npm start`.
 
 ---
 
