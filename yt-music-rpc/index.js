@@ -6,8 +6,8 @@ client.login({ clientId: '920929238301962300' })
 const express = require('express');
 const app = express();
 
+
 app.get('/', (req, res) => {
-    console.log(req.query.paused);
     if (req.query.artist !== 'undefined') {
         if (req.query.paused === "Play") {
             client.setActivity({
@@ -20,7 +20,7 @@ app.get('/', (req, res) => {
                 startTimestamp: Number(req.query.time),
             }).then(a => {
                 res.sendStatus(200);
-                console.log(a);
+                // console.log(a);
             });    
         } else {
             client.setActivity({
@@ -31,13 +31,14 @@ app.get('/', (req, res) => {
                 startTimestamp: Number(req.query.time),
             }).then(a => {
                 res.sendStatus(200);
-                console.log(a);
+                // console.log(a);
             });
         }
     }
-
+    
 });
 
 app.listen(3123, () => {
     console.log('listening on port 3123');
+    console.log("\nInitiated.");
 });
