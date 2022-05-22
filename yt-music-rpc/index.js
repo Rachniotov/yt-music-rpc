@@ -7,17 +7,33 @@ const express = require('express');
 const app = express();
 
 app.get('/', (req, res) => {
+    console.log(req.query.paused);
     if (req.query.artist !== 'undefined') {
-        client.setActivity({
-            details: req.query.title,
-            state: `by ${req.query.artist}`,
-            largeImageKey: req.query.thumb,
-            largeImageText: 'YTMusic > Spotify',
-            startTimestamp: Number(req.query.time),
-        }).then(a => {
-            res.sendStatus(200);
-            console.log(a);
-        });
+        if (req.query.paused === "Play") {
+            client.setActivity({
+                details: req.query.title,
+                state: `by ${req.query.artist}`,
+                largeImageKey: req.query.thumb,
+                largeImageText: 'YTMusic > Spotify',
+                smallImageKey: "https://www.freeiconspng.com/uploads/pause-icon-13.png",
+                smallImageText: "Paused",
+                startTimestamp: Number(req.query.time),
+            }).then(a => {
+                res.sendStatus(200);
+                console.log(a);
+            });    
+        } else {
+            client.setActivity({
+                details: req.query.title,
+                state: `by ${req.query.artist}`,
+                largeImageKey: req.query.thumb,
+                largeImageText: 'YTMusic > Spotify',
+                startTimestamp: Number(req.query.time),
+            }).then(a => {
+                res.sendStatus(200);
+                console.log(a);
+            });
+        }
     }
 
 });
