@@ -2,13 +2,19 @@
 
 A simple but effective Discord rich presence for Youtube Music. This consists of two modules, a client and an extension. The client needs to be running on the machine at all times (if you want rpc at all times) and you need to add and enable the extension in your browser.
 
-# Requirements
+## Features
+
+- Displays Song name, Artist name, and how much time has elapsed.
+- Displays Song art.
+- Shows if the song is paused.
+
+## Requirements
 
 1. LTS vesrion of Nodejs 
 2. A browser which supports chrome extension manifest version 2
 3. Discord Client
 
-# How to
+## How to
 
 1. Clone this repo.
 2. Open the extensions page of your browser (usually `chrome://extensions` but differs with browser) and enable developer mode.
@@ -18,4 +24,4 @@ A simple but effective Discord rich presence for Youtube Music. This consists of
 
 ---
 
-## Thank you for reading and dont forget to star :)
+### Thank you for reading and dont forget to star :)
