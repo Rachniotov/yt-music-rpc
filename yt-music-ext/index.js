@@ -1,7 +1,6 @@
 if (document.location.href.includes('music.youtube')) {
-    console.log('sdfjhsdfhsdfh!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! JJJJJJAAAAAAAAAAAAAA');
+    console.log('YTM RPC running...');
 
-    let prev;
     setInterval(() => {
         const name = document.querySelector('#layout > ytmusic-player-bar > div.middle-controls.style-scope.ytmusic-player-bar > div.content-info-wrapper.style-scope.ytmusic-player-bar > yt-formatted-string');
         const artist = document.querySelector('#layout > ytmusic-player-bar > div.middle-controls.style-scope.ytmusic-player-bar > div.content-info-wrapper.style-scope.ytmusic-player-bar > span > span.subtitle.style-scope.ytmusic-player-bar > yt-formatted-string');
@@ -13,9 +12,10 @@ if (document.location.href.includes('music.youtube')) {
 
         let state = document.querySelector("#play-pause-button");
         paused = state.title;
-        console.log(paused);
 
-        fetch(`http://localhost:3123/?title=${encodeURIComponent(name?.innerText)}&artist=${encodeURIComponent(artist?.innerText.split('•')[0])}&time=${timeElasped}&thumb=${thumb.src}&paused=${paused}`).catch(() => {});
+        let url = document.querySelector("a.ytp-title-link.yt-uix-sessionlink").href;
+
+        fetch(`http://localhost:3123/?title=${encodeURIComponent(name?.innerText)}&artist=${encodeURIComponent(artist?.innerText.split('•')[0])}&time=${timeElasped}&thumb=${thumb.src}&paused=${paused}&videourl=${url}`).catch(() => {});
     }, 1000*5);
 }
 

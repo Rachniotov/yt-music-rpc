@@ -7,6 +7,7 @@ A simple but effective Discord rich presence for Youtube Music. This consists of
 - Displays Song name, Artist name, and how much time has elapsed.
 - Displays Song art.
 - Shows if the song is paused.
+- A Listen Along button
 
 ## Requirements
 

@@ -17,6 +17,12 @@ app.get('/', (req, res) => {
                 largeImageText: 'YTMusic > Spotify',
                 smallImageKey: "https://www.freeiconspng.com/uploads/pause-icon-13.png",
                 smallImageText: "Paused",
+                buttons: [
+                    {
+                        label: "Listen along",
+                        url: req.query.videourl
+                    }
+                ],
                 startTimestamp: Number(req.query.time),
             }).then(a => {
                 res.sendStatus(200);
@@ -29,6 +35,12 @@ app.get('/', (req, res) => {
                 largeImageKey: req.query.thumb,
                 largeImageText: 'YTMusic > Spotify',
                 startTimestamp: Number(req.query.time),
+                buttons: [
+                    {
+                        label: "Listen along",
+                        url: req.query.videourl
+                    }
+                ]
             }).then(a => {
                 res.sendStatus(200);
                 // console.log(a);
